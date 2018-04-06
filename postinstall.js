@@ -11,6 +11,9 @@ sh.exec('cp '+src+' '+target);
 
 process.chdir(target);
 
+
+console.log("copying algae blastdb...");
 sh.exec('tar -zxvf algae.tar.gz');
 
+console.log("cleaning up...");
 sh.exec('rm '+target+'/algae.tar.gz');
