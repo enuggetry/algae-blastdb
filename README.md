@@ -1,4 +1,4 @@
-# algae_blastdb
+# algae-blastdb
 
 Install sample algae blastdb into approot/blastdb for jblast.
 
