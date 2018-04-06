@@ -12,3 +12,5 @@ sh.exec('cp '+src+' '+target);
 process.chdir(target);
 
 sh.exec('tar -zxvf algae.tar.gz');
+
+sh.exec('rm '+target+'/algae.tar.gz');
