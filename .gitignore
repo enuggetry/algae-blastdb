@@ -3,6 +3,6 @@
 /blastdb
 /blastbin
 /utils
-test.fa
+*.fa
 package-lock.json
 
