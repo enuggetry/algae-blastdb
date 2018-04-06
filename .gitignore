@@ -1,2 +1,8 @@
 /node_modules
+/algae
+/blastdb
+/blastbin
+/utils
 test.fa
+package-lock.json
+
