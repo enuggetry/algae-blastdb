@@ -5,22 +5,23 @@ const a = require('async');
 let entrezBase = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/';
 let outfile = "algae.fa";
 let concurrency = 50;
-let requests = 2000;	// number of requests
+let requests = 20000;	// number of requests
 let countSeq = 0;
-let sizeLimit = 20000;	// limit sequence size
+let sizeLimit = 1000000;	// limit sequence size
 
 fs.writeFileSync(outfile,";\n");
 
 let organisms = [
-	{name:'Micromonas commoda', accession:'SAMN03081421'},					// 10077 seqs
+	//{name:'Micromonas commoda', accession:'SAMN03081421'},					// 10077 seqs
+	{name:'Volvox', accession: 'SAMN02953753'},			// 1252
 	{name: 'Chlorella variabilis',accession:'SAMN02744065'},					// 415 seqs
-	{name: 'Auxenochlorella protothecoides',accession:'SAMN02433493'}, 		// 655
+	//{name: 'Auxenochlorella protothecoides',accession:'SAMN02433493'}, 		// 655
 	//{name: 'Picochlorum sp. SENEW3',accession:'SAMN02739349'},				// 1 seq
-	{name: 'Ostreococcus tauri',accession:'SAMEA3138397'},					// 7703 seqs
+	//{name: 'Ostreococcus tauri',accession:'SAMEA3138397'},					// 7703 seqs
 	//{name: 'Coccomyxa sp. SUA001',accession:'SAMN03761152'},					// 1 seq
 	//{name: 'Bathycoccus prasinos',accession:'PRJEA71363'},					// 0 seqs
 	{name:'Bathycoccus sp. TOSAG39-1', accession:'SAMEA3727691'},				// 2119
-	{name:'	Ostreococcus lucimarinus CCE9901', accession:'SAMN03081420'},	// 7645
+	//{name:'	Ostreococcus lucimarinus CCE9901', accession:'SAMN03081420'},	// 7645
 	{name: 'Trebouxia gelatinosa',accession:'SAMN03104849'}						// 109
 ];
 
@@ -118,8 +119,9 @@ function fetchFASTA(id,cb) {
 			if (data.length < sizeLimit) {
 				let comment = countSeq+' id: '+id+' '+data.length;
 				console.log(comment);
-				fs.appendFileSync(outfile,'; '+comment+'\n');
-				fs.appendFileSync(outfile,data);
+				//fs.appendFileSync(outfile,'; '+comment+'\n');
+				
+				fs.appendFileSync(outfile,addSeqId(data));
 			}
 			cb();
 		})
@@ -127,3 +129,13 @@ function fetchFASTA(id,cb) {
 			cb({msg:'request id '+id+' failed',err:err});
 		});
 };
+
+function addSeqId(data) {
+	let lines = data.split("\n");
+	let h = lines[0].split(" ");
+	h[0] = h[0].substr(1);
+	let seqid = ">gn1|ALGAE|"+countSeq;
+	h.unshift(seqid);
+	lines[0] = h.join(' ');
+	return lines.join("\n");
+}

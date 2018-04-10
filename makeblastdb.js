@@ -10,10 +10,10 @@ fs.ensureDirSync(newdir);
 
 if (!fs.existsSync(blastbin)) process.exit(1);
 
-sh.exec(blastbin+'makeblastdb -in algae.fa -out algae -parse_seqids -dbtype nucl');
+sh.exec(blastbin+'makeblastdb -in algae.fa -out algae/algae -parse_seqids -dbtype nucl');
 
-sh.exec('mv algae.n* algae');
+//sh.exec('mv algae.n* algae');
 
-sh.exec('tar -zcvf algae.tar.gz algae');
+sh.exec('tar -zcvf algae.tar.gz algae/algae');
 
 
