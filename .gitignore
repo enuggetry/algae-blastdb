@@ -1,8 +1,9 @@
 /node_modules
-/algae
+/faux
 /blastdb
 /blastbin
 /utils
 *.fa
+*.fasta
 package-lock.json
 
