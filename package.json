@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.6.0",
+    "biojs-io-fasta": "^0.1.17",
     "blastjs": "github:enuggetry/blastjs",
     "fs-extra": "^5.0.0",
     "request": "^2.85.0",

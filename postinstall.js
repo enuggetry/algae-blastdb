@@ -3,7 +3,7 @@ const sh = require('shelljs');
 const fs = require('fs-extra');
 
 let target = approot+'/blastdb';
-let src = 'algae.tar.gz';
+let src = 'fauxdb.tar.gz';
 
 fs.ensureDirSync(target);
 
@@ -13,7 +13,7 @@ process.chdir(target);
 
 
 console.log("copying algae blastdb...");
-sh.exec('tar -zxvf algae.tar.gz');
+sh.exec('tar -zxvf fauxdb.tar.gz');
 
 console.log("cleaning up...");
-sh.exec('rm '+target+'/algae.tar.gz');
+sh.exec('rm '+target+'/fauxdb.tar.gz');
