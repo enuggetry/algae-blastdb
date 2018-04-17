@@ -3,7 +3,6 @@
 /blastdb
 /blastbin
 /utils
-*.fa
 *.fasta
 package-lock.json
 
