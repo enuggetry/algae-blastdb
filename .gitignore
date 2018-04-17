@@ -7,3 +7,4 @@
 *.fasta
 package-lock.json
 
+/nbproject/private/
