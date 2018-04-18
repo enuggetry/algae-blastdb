@@ -2,7 +2,7 @@ const _ = require('lodash');
 const fs = require('fs-extra');
 const fetch = require('node-fetch');
 const async = require('async');
-//var rand = require('random-seed').create("faux");
+var rand = require('random-seed').create("faux");
 
 let url = 'file:///var/www/html/blasttest/volvox.fa';
 let inFile = 'volvox.fa';
@@ -10,7 +10,7 @@ let outFile = 'fauxdb.fa';
 let mi = .04;	// mutations per iteration.
 let lineLen = 70;
 let organismCount = 0;
-let organismSeries = [10,12,15,20,25,30,40,50];
+let organismSeries = [5,10,10,20,20,25,30,35];
 
 let animalsUrl = 'https://raw.githubusercontent.com/boennemann/animals/master/words.json';
 let ajectivesUrl = 'https://raw.githubusercontent.com/dariusk/corpora/master/data/words/adjs.json';
@@ -50,8 +50,8 @@ async.parallel({
 
 function generateOrganismName() {
     while(true) {
-        let animal = nameDb.animals[Math.floor(Math.random() * nameDb.animals.length)];
-        let adjective = nameDb.adjectives[Math.floor(Math.random() * nameDb.adjectives.length)];
+        let animal = nameDb.animals[rand(nameDb.animals.length)];
+        let adjective = nameDb.adjectives[rand(nameDb.adjectives.length)];
         let newName = adjective+' '+animal;
         
         // ensure no two organism names are the same.
@@ -119,9 +119,9 @@ function mutate(seq,pct) {
 	
 	for(let i=0;i<mCount;i++) {
 		// random location
-		let loc = Math.floor(Math.random() * seq.length);
+		let loc = rand(seq.length);
 		// random new letter
-		let newLtr = ltrs[Math.floor(Math.random() * ltrs.length)];
+		let newLtr = ltrs[rand(ltrs.length)];
 		
 		// avoid locations that were already replaced
 		while (
@@ -129,11 +129,11 @@ function mutate(seq,pct) {
 			//|| (seq[loc] >= 'A' && seq[loc] <= 'Z')
 			) {
 				
-			loc = Math.floor(Math.random() * seq.length);
+			loc = rand(seq.length);
 		}
 		// avoid replaceing with the same letter, or already done
 		while (seq[loc].toUpperCase() === newLtr) {
-			newLtr = ltrs[Math.floor(Math.random() * ltrs.length)];
+			newLtr = ltrs[rand(ltrs.length)];
 		}
 		mList[loc] = true;
 		strlst += loc+" ";	// for debugging
