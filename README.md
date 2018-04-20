@@ -1,18 +1,21 @@
 # algae-blastdb
 
-Install sample algae blastdb into approot/blastdb for jblast.
+Install sample faux blastdb into approot/blastdb for jblast.
 
 ```
-npm install enuggetry/algae-blastdb
-cd algae-blastdb
+npm install enuggetry/faux-blastdb
+cd faux-blastdb
 npm install
 ```
 
+## Build
+`npm run build`
+
 ## Utilities
-Build algae.fa, using entrez API
+Build fauxdb.fa
 
-`node makealgae.js`
+`node makefaux.js`
 
-build blast database into algae.tar.gz
+build blast database into fauxdb.tar.gz
 
-`node makeblastdb.js`
+`node buildfaux.js`
