@@ -1,6 +1,6 @@
 {
   "name": "faux-blastdb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "faux blast database for JBlast",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.6.0",
-    "jblastjs": "github:enuggetry/jblastjs",
+    "jblastjs": "github:enuggetry/blast-ncbi-tools",
     "fs-extra": "^5.0.0",
     "request": "^2.85.0",
     "request-promise": "^4.2.2",
