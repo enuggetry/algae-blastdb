@@ -1,6 +1,6 @@
 {
   "name": "faux-blastdb",
-  "version": "1.0.1",
+  "version": "0.10.001",
   "description": "faux blast database for JBlast",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "node makefaux.js && node buildfaux.js"
   },
   "author": "enuggetry",
-  "license": "ISC",
+  "license": "LGPL",
   "dependencies": {
     "async": "^2.6.0",
     "jblastjs": "github:enuggetry/blast-ncbi-tools",
