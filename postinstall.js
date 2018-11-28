@@ -1,6 +1,6 @@
 const path = require('path');
-const approot = path.dirname(require.main.filename);
-//const approot = require('app-root-path');
+//const approot = path.dirname(require.main.filename);
+const approot = require('app-root-path');
 const sh = require('shelljs');
 const fs = require('fs-extra');
 
