@@ -1,5 +1,7 @@
 # faux-blastdb
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/enuggetry/faux-blastdb.svg)](https://greenkeeper.io/)
+
 Install sample faux blastdb into approot/blastdb for jblast.
 
 ```
