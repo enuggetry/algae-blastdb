@@ -13,7 +13,7 @@
   "dependencies": {
     "async": "^2.6.0",
     "blast-ncbi-tools": "github:enuggetry/blast-ncbi-tools",
-    "fs-extra": "^5.0.0",
+    "fs-extra": "^7.0.1",
     "request": "^2.85.0",
     "request-promise": "^4.2.2",
     "shelljs": "^0.8.1",
